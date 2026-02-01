@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
 </head>
+<style>
+    body {
+        background: white;
+    }
+
+    #displayBox {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+</style>
+
 <body>
-    
+    <input type="text" id="userColor" onfocus="this.value=''">
+    <button id="applyBtn">change color</button>
+    <button id="changeColor">change background</button>
+    <div id="displayBox">
+
+    </div>
+    <script>
+        const input = document.getElementById("userColor")
+        const button = document.getElementById("applyBtn")
+        const div = document.getElementById("displayBox")
+        const darkMode = document.getElementById("changeColor")
+        // button.addEventListener("click", () => {
+        //     if (!input.value) {
+        //         window.alert("you need enter a color")
+        //     }
+        //     div.style.backgroundColor = input.value;
+        // })
+        input.addEventListener("input", () => {
+            div.style.backgroundColor = input.value
+
+        })
+        darkMode.addEventListener("click", () => {
+            if (document.body.style.background === "black") {
+                document.body.style.background = "white"
+                div.style.border = "1px solid black"
+            }
+            else {
+                document.body.style.background = "black"
+                div.style.border = "1px solid white"
+            }
+
+        })
+    </script>
 </body>
+
 </html>
